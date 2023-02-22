@@ -11,7 +11,7 @@ using namespace std;
 struct nodo
 {	
 	char name[10];
-	int code;
+	int code, doc;
 	nodo *sig;
 };
 
@@ -22,19 +22,23 @@ nodo *aux2;
 int registro(){
 	if(cab==NULL){
 	cab = (struct nodo *) malloc (sizeof(struct nodo));
-	cout<<"digite un codigo: ";
+	cout<<"digite un Codigo: ";
 	cin>>cab->code;
-	cout<<"digite nombre: ";
+	cout<<"digite Nombre: ";
 	cin>>cab->name;	
+	cout<<"digite Documento: ";
+	cin>>cab->doc;	
 	cab->sig = NULL;
 	system("cls");		
 	}else{
 
 	aux = (struct nodo *) malloc (sizeof(struct nodo));
-	cout<<"digite codigo: ";
+	cout<<"digite Codigo: ";
 	cin>>aux->code;
-	cout<<"digite nombre: ";
+	cout<<"digite Nombre: ";
 	cin>>aux->name;
+	cout<<"digite Documento: ";
+	cin>>cab->doc;	
 	aux->sig = NULL;
 	aux2=cab; 
 	system("cls");
@@ -52,7 +56,9 @@ int mostrar(){
 	for(aux=cab; aux!=NULL; aux=aux->sig){
 			cout<<"Codigo: "<<aux->code<<endl;
 		
-			cout<<"nombre: "<<aux->name<<endl;
+			cout<<"Nombre: "<<aux->name<<endl;
+
+			cout<<"Documento: "<<aux->doc<<endl;
 		
 	
 	}
@@ -68,8 +74,8 @@ int menu(){
 	do
 	{
 		
-		cout<<"****Hospitalito.***\n ";
-		cout<<"*+*Menu Principal***\n";
+		cout<<"******Hospitalito.******\n ";
+		cout<<"*Registro de pasientes*\n";
 		cout<<"1. Registro  \n";
 		cout<<"2. Mostrar \n";
 		cout<<"3. Salir \n";
@@ -80,7 +86,8 @@ int menu(){
 			case 1: registro();
 					break;
 			case 2: mostrar();
-			system("cls");
+			
+			
 					break;
 				case 3:;
 					break;
